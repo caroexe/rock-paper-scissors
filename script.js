@@ -35,12 +35,16 @@ let humanScore = 0;
 let computerScore = 0;
 
 
+ // playGame function to play 5 rounds and choose a final winner!
+ // Call playRound 5 times in a while loop
+ 
+function playGame () {
+
 
 // playRound
 // Get human choice and computer choice
 // Compare both and choose a winner
 // return a string output message
-
  function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
@@ -52,31 +56,31 @@ let computerScore = 0;
         case "rock":
             if (computerChoice == "paper") {
                 computerScore += 1;
-                return console.log("You lose!Paper beats Rock");
+                return console.log("You lose! Paper beats Rock");
             }
             else {
                 humanScore += 1;
-                return console.log("You win!Rock beats scissors");
+                return console.log("You win! Rock beats scissors");
             }
             break;
         case "paper":
             if (computerChoice == "scissors") {
                 computerScore += 1;
-                return console.log("You lose!Scissors beats Paper");
+                return console.log("You lose! Scissors beats Paper");
             }
             else {
                 humanScore += 1;
-                return console.log("You win!Paper beats Rock");
+                return console.log("You win! Paper beats Rock");
             }
             break;
         case "scissors":
             if (computerChoice == "rock") {
                 computerScore += 1;
-                return console.log("You lose!Rock beats Scissors");
+                return console.log("You lose! Rock beats Scissors");
             }
             else {
                 humanScore += 1;
-                return console.log("You win!Scissors beats Paper");
+                return console.log("You win! Scissors beats Paper");
             }
             break;
         default: 
@@ -84,7 +88,24 @@ let computerScore = 0;
     }
  }
 
- const humanSelection = getHumanChoice();
- const computerSelection = getComputerChoice();
+ let roundCounter = 1;
 
- playRound(humanSelection, computerSelection);
+ while (roundCounter <= 5 ) {
+    console.log("Round " + roundCounter);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+   
+    playRound(humanSelection, computerSelection);
+    console.log("Human:" + humanScore);
+    console.log("Computer:" + computerScore);
+    roundCounter += 1;
+ };
+
+ if (humanScore > computerScore) {
+    return "Congrats! You have won against the Computer";
+ }
+ else {
+    return "You have lost! Try your luck again next time!";
+ }
+
+}
