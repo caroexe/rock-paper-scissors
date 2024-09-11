@@ -17,3 +17,15 @@ function getComputerChoice () {
         return "scissors";
     }
 }
+// Get Human Choice using the prompt method
+// Check if choice is valid
+function getHumanChoice () {
+    let choice = prompt("Choose Rock, Paper or Scissors");
+    choice = choice.toLowerCase();
+    if (choice == "rock" || choice == "paper" || choice == "scissors") {
+        return choice;
+    }
+    else {
+        return "invalid input";
+    }
+}
