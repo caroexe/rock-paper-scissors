@@ -6,7 +6,6 @@
 
 function getComputerChoice () {
     let result = Math.floor(Math.random() * 3);
-    console.log(result);
     if (result == 0) {
         return "rock";
     } 
@@ -29,3 +28,63 @@ function getHumanChoice () {
         return "invalid input";
     }
 }
+
+// Variables to keep track of players score.
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+
+// playRound
+// Get human choice and computer choice
+// Compare both and choose a winner
+// return a string output message
+
+ function playRound (humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+
+    if (humanChoice == computerChoice) {
+        return console.log("It's a tie!");
+    }
+
+    switch (humanChoice) {
+        case "rock":
+            if (computerChoice == "paper") {
+                computerScore += 1;
+                return console.log("You lose!Paper beats Rock");
+            }
+            else {
+                humanScore += 1;
+                return console.log("You win!Rock beats scissors");
+            }
+            break;
+        case "paper":
+            if (computerChoice == "scissors") {
+                computerScore += 1;
+                return console.log("You lose!Scissors beats Paper");
+            }
+            else {
+                humanScore += 1;
+                return console.log("You win!Paper beats Rock");
+            }
+            break;
+        case "scissors":
+            if (computerChoice == "rock") {
+                computerScore += 1;
+                return console.log("You lose!Rock beats Scissors");
+            }
+            else {
+                humanScore += 1;
+                return console.log("You win!Scissors beats Paper");
+            }
+            break;
+        default: 
+            return console.log("An error has occured");
+    }
+ }
+
+ const humanSelection = getHumanChoice();
+ const computerSelection = getComputerChoice();
+
+ playRound(humanSelection, computerSelection);
