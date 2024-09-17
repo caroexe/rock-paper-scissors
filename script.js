@@ -21,7 +21,7 @@ function getHumanChoice () {
     }
 }
 
-// Variables to keep track of players score.
+// Variables to keep track of player score.
 let humanScore = 0;
 let computerScore = 0;
 
@@ -30,66 +30,50 @@ function resetScore (){
     computerScore = 0;
 }
 
- function playRound (humanChoice, computerChoice) {
+function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
+    let result = "";
+
     if (humanChoice == computerChoice) {
-        return console.log("It's a tie!");
+        return result = "tie";
     }
 
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "paper") {
                 computerScore += 1;
-                return console.log("You lose! Paper beats Rock");
+                return result = "lose";
             }
             else {
                 humanScore += 1;
-                return console.log("You win! Rock beats scissors");
+                return result = "win";
             }
             break;
         case "paper":
             if (computerChoice == "scissors") {
                 computerScore += 1;
-                return console.log("You lose! Scissors beats Paper");
+                return result = "lose";
             }
             else {
                 humanScore += 1;
-                return console.log("You win! Paper beats Rock");
+                return result = "win";
             }
             break;
         case "scissors":
             if (computerChoice == "rock") {
                 computerScore += 1;
-                return console.log("You lose! Rock beats Scissors");
+                return result = "lose";
             }
             else {
                 humanScore += 1;
-                return console.log("You win! Scissors beats Paper");
+                return result = "win";
             }
             break;
         default: 
             return console.log("An error has occured");
     }
  }
- 
- let btns = document.querySelector('#buttons');
-
- btns.addEventListener('click', (event) => {
-     let target = event.target;
- 
-     switch (target.id) {
-         case 'rockBtn':
-             playRound("rock",getComputerChoice());
-             break;
-         case 'paperBtn':
-             playRound("paper",getComputerChoice());
-             break;
-         case 'scissorsBtn':
-             playRound("scissors",getComputerChoice());
-             break;
-     }
- });
 
 function playGame () {
 
@@ -117,4 +101,24 @@ function playGame () {
  }
 
 }
+
+
+let btns = document.querySelector('#buttons');
+btns.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch (target.id) {
+        case 'rockBtn':
+            playRound("rock",getComputerChoice());
+            break;
+        case 'paperBtn':
+            playRound("paper",getComputerChoice());
+            break;
+        case 'scissorsBtn':
+            playRound("scissors",getComputerChoice());
+            break;
+    }
+});
+
+
 
