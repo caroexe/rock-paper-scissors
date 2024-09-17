@@ -1,5 +1,3 @@
-
-
 function getComputerChoice () {
     let result = Math.floor(Math.random() * 3);
     if (result == 0) {
@@ -101,3 +99,21 @@ function playGame () {
  }
 
 }
+
+let btns = document.querySelector('#buttons');
+
+btns.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch (target.id) {
+        case 'rockBtn':
+            playRound("rock",getComputerChoice());
+            break;
+        case 'paperBtn':
+            playRound("paper",getComputerChoice());
+            break;
+        case 'scissorsBtn':
+            playRound("scissors",getComputerChoice());
+            break;
+    }
+});
