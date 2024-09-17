@@ -73,6 +73,24 @@ function resetScore (){
     }
  }
  
+ let btns = document.querySelector('#buttons');
+
+ btns.addEventListener('click', (event) => {
+     let target = event.target;
+ 
+     switch (target.id) {
+         case 'rockBtn':
+             playRound("rock",getComputerChoice());
+             break;
+         case 'paperBtn':
+             playRound("paper",getComputerChoice());
+             break;
+         case 'scissorsBtn':
+             playRound("scissors",getComputerChoice());
+             break;
+     }
+ });
+
 function playGame () {
 
 //  let roundCounter = 1;
@@ -100,20 +118,3 @@ function playGame () {
 
 }
 
-let btns = document.querySelector('#buttons');
-
-btns.addEventListener('click', (event) => {
-    let target = event.target;
-
-    switch (target.id) {
-        case 'rockBtn':
-            playRound("rock",getComputerChoice());
-            break;
-        case 'paperBtn':
-            playRound("paper",getComputerChoice());
-            break;
-        case 'scissorsBtn':
-            playRound("scissors",getComputerChoice());
-            break;
-    }
-});
