@@ -1,8 +1,4 @@
-//  Return randomly "rock","paper" or "scissors"
-//     Use Math.random to generate a random value between 0 and 1.
-//
-//     Multiply the random number with 3 and
-//     round it down to the nearest number using Math.floor
+
 
 function getComputerChoice () {
     let result = Math.floor(Math.random() * 3);
@@ -16,8 +12,6 @@ function getComputerChoice () {
         return "scissors";
     }
 }
-// Get Human Choice using the prompt method
-// Check if choice is valid
 function getHumanChoice () {
     let choice = prompt("Choose Rock, Paper or Scissors");
     choice = choice.toLowerCase();
@@ -30,21 +24,14 @@ function getHumanChoice () {
 }
 
 // Variables to keep track of players score.
-
 let humanScore = 0;
 let computerScore = 0;
 
+function resetScore (){
+    humanScore = 0;
+    computerScore = 0;
+}
 
- // playGame function to play 5 rounds and choose a final winner!
- // Call playRound 5 times in a while loop
- 
-function playGame () {
-
-
-// playRound
-// Get human choice and computer choice
-// Compare both and choose a winner
-// return a string output message
  function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
 
@@ -87,24 +74,29 @@ function playGame () {
             return console.log("An error has occured");
     }
  }
+ 
+function playGame () {
 
- let roundCounter = 1;
-
- while (roundCounter <= 5 ) {
-    console.log("Round " + roundCounter);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+//  let roundCounter = 1;
+//  while (roundCounter <= 5 ) {
+//     console.log("Round " + roundCounter);
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
    
-    playRound(humanSelection, computerSelection);
-    console.log("Human:" + humanScore);
-    console.log("Computer:" + computerScore);
-    roundCounter += 1;
- };
+//     playRound(humanSelection, computerSelection);
+//     console.log("Human:" + humanScore);
+//     console.log("Computer:" + computerScore);
+//     roundCounter += 1;
+//  };
+
+
 
  if (humanScore > computerScore) {
+    resetScore();
     return "Congrats! You have won against the Computer";
  }
  else {
+    resetScore();
     return "You have lost! Try your luck again next time!";
  }
 
