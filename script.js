@@ -4,6 +4,7 @@ const scorePlayer = document.querySelector('#score-player');
 const scoreComputer = document.querySelector('#score-computer');
 const recordPlayer = document.querySelector('#record-player');
 const recordComputer = document.querySelector('#record-computer');
+const container = document.querySelector('#container');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -108,10 +109,29 @@ function playGame (playerSelect) {
 
     if (playerScore >= 5 && computerScore < 5) {
         message.textContent = 'Game Over. You Win!';
+        reloadPage();
       } else if (playerScore < 5 && computerScore >= 5) {
         message.textContent = 'Game Over. You Lose!';
+        reloadPage();
       }
 
+}
+
+function reloadPage () {
+    const reloadBtn = document.createElement("button");
+    reloadBtn.style.backgroundColor= "#E01C3D";
+    reloadBtn.style.color= "white";
+    reloadBtn.style.padding= "12px 25px";
+    reloadBtn.style.border = "2px solid white";
+    reloadBtn.style.textAlign = "center";
+    reloadBtn.style.textDecoration = "none";
+    reloadBtn.style.display = "inline-block";
+    reloadBtn.style.fontSize = "16px";
+    reloadBtn.textContent = 'Retry?';
+    container.appendChild(reloadBtn);
+    reloadBtn.addEventListener('click', (event) => {
+        window.location.reload();
+    })
 }
 
 function createParagWithText (text) {
