@@ -1,0 +1,30 @@
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#score-board {
+    display: flex;
+    margin: 20px 0px;
+}
+
+#score-seperator {
+    margin: 0px 10px;
+}
+
+#message {
+    margin: 10px;
+}
+
+#record{
+    display: flex;
+    text-align: center;
+    gap: 20px;
+}
+
