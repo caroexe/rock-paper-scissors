@@ -8,6 +8,59 @@ const recordComputer = document.querySelector('#record-computer');
 let playerScore = 0;
 let computerScore = 0;
 
+btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        if (playerScore >= 5 || computerScore >= 5) {
+            return;
+        }
+        
+    })
+});
+
+function playRound (playerChoice, computerChoice) {
+
+    let result = '';
+
+    if (playerChoice === 'Rock') {
+        if (computerChoice === 'Paper') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        } 
+        else if (computerChoice === 'Scissors'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        }
+        else {
+            result = `It's a tie!`;
+        }
+    }
+    else if (playerChoice === 'Paper') {
+        if (computerChoice === 'Scissors') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        } 
+        else if (computerChoice === 'Rock'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        }
+        else {
+            result = `It's a tie!`;
+        }
+    } else if (playerChoice === 'Scissors') {
+        if (computerChoice === 'Rock') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        } 
+        else if (computerChoice === 'Paper'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        }
+        else {
+            result = `It's a tie!`;
+        }
+    }  
+}
+
 
 function getComputerSelection () {
     let computerNumber = random(3);
@@ -30,6 +83,8 @@ function getComputerSelection () {
 
     return computerGuess;
 }
+
+
 
 function random (number) {
     return Math.floor(Math.random() * number + 1);
