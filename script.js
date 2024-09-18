@@ -17,51 +17,6 @@ btns.forEach((btn) => {
     })
 });
 
-function playRound (playerChoice, computerChoice) {
-
-    let result = '';
-
-    if (playerChoice === 'Rock') {
-        if (computerChoice === 'Paper') {
-            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
-            computerScore += 1;
-        } 
-        else if (computerChoice === 'Scissors'){
-            result = `You Win! ${playerChoice} beats ${computerChoice}`;
-            playerScore += 1;
-        }
-        else {
-            result = `It's a tie!`;
-        }
-    }
-    else if (playerChoice === 'Paper') {
-        if (computerChoice === 'Scissors') {
-            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
-            computerScore += 1;
-        } 
-        else if (computerChoice === 'Rock'){
-            result = `You Win! ${playerChoice} beats ${computerChoice}`;
-            playerScore += 1;
-        }
-        else {
-            result = `It's a tie!`;
-        }
-    } else if (playerChoice === 'Scissors') {
-        if (computerChoice === 'Rock') {
-            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
-            computerScore += 1;
-        } 
-        else if (computerChoice === 'Paper'){
-            result = `You Win! ${playerChoice} beats ${computerChoice}`;
-            playerScore += 1;
-        }
-        else {
-            result = `It's a tie!`;
-        }
-    }  
-}
-
-
 function getComputerSelection () {
     let computerNumber = random(3);
     let computerGuess = '';
@@ -84,6 +39,46 @@ function getComputerSelection () {
     return computerGuess;
 }
 
+
+
+function playRound (playerChoice, computerChoice) {
+
+    let result = '';
+
+    if (playerChoice === 'Rock') {
+        if (computerChoice === 'Paper') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        }  else if (computerChoice === 'Scissors'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        } else {
+            result = `It's a tie!`;
+        }
+    } else if (playerChoice === 'Paper') {
+        if (computerChoice === 'Scissors') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        } else if (computerChoice === 'Rock'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        } else {
+            result = `It's a tie!`;
+        }
+    } else if (playerChoice === 'Scissors') {
+        if (computerChoice === 'Rock') {
+            result = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            computerScore += 1;
+        } else if (computerChoice === 'Paper'){
+            result = `You Win! ${playerChoice} beats ${computerChoice}`;
+            playerScore += 1;
+        } else {
+            result = `It's a tie!`;
+        }
+    } 
+    
+    return result;
+}
 
 
 function random (number) {
