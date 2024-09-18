@@ -43,39 +43,46 @@ function playRound (humanChoice, computerChoice) {
         case "rock":
             if (computerChoice == "paper") {
                 computerScore += 1;
-                return result = "lose";
+                result = 'You Lose! Paper beats Rock.';
             }
             else {
                 humanScore += 1;
-                return result = "win";
+                result = 'You Win! Rock beats Scissors.';
             }
             break;
         case "paper":
             if (computerChoice == "scissors") {
                 computerScore += 1;
-                return result = "lose";
+                result = 'You Lose! Scissors beats Paper.';
             }
             else {
                 humanScore += 1;
-                return result = "win";
+                result = 'You Win! Paper beats Rock.';
             }
             break;
         case "scissors":
             if (computerChoice == "rock") {
                 computerScore += 1;
-                return result = "lose";
+                result = 'You Lose! Rock beats Scissors.';
             }
             else {
                 humanScore += 1;
-                return result = "win";
+                result = 'You Win! Scissors beats Paper.';
             }
             break;
         default: 
-            return console.log("An error has occured");
+            return console.log("An error has occured"); 
     }
+
+    return result;
  }
 
-function playGame () {
+
+function playGame (playerSelect) {
+
+    let playerSelection = playerSelect;
+    let computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection,computerSelection); 
 
 //  let roundCounter = 1;
 //  while (roundCounter <= 5 ) {
@@ -103,22 +110,32 @@ function playGame () {
 }
 
 
-let btns = document.querySelector('#buttons');
+const btns = document.querySelector('#buttons');
 btns.addEventListener('click', (event) => {
     let target = event.target;
 
     switch (target.id) {
         case 'rockBtn':
-            playRound("rock",getComputerChoice());
+            playGame('rock');
             break;
         case 'paperBtn':
-            playRound("paper",getComputerChoice());
+            playGame('paper');
             break;
         case 'scissorsBtn':
-            playRound("scissors",getComputerChoice());
+            playGame('scissors');
             break;
     }
 });
 
 
+const scoreBoardPlayer = document.querySelector('#score-player');
+const scoreBoardComputer = document.querySelector('#score-computer');
+const recordPlayer = document.querySelector('#record-player');
+const recordComputer = document.querySelector('#record-computer');
 
+function createParagWithText(text) {
+    const p = document.createElement('p');
+    p.textContent = text;
+
+    return p;
+}
