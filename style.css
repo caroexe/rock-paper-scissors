@@ -1,3 +1,9 @@
+body {
+    background-color: hsl(0, 0%, 0%);
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+}
+
 #title {
     display: flex;
     justify-content: center;
@@ -28,3 +34,19 @@
     gap: 20px;
 }
 
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.imgBtn {
+    object-fit: scale-down;
+    max-width: 250px;
+    max-height: auto;
+    
+}
+
+#paperBtn {
+    max-height: 250px;
+    max-width: fit-content;
+}
