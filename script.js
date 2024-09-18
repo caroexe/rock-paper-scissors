@@ -51,8 +51,6 @@ function getComputerSelection () {
     return computerGuess;
 }
 
-
-
 function playRound (playerChoice, computerChoice) {
 
     let result = '';
@@ -93,10 +91,8 @@ function playGame (playerSelect) {
     let roundResult = playRound(playerSelection,computerSelection);
 
     if (roundResult.search('You Win!') > -1) {
-        console.log('WIN');
         playerScore++;
     } else if (roundResult.search ('You Lose!') > -1 ) {
-        console.log('LOOSE');
         computerScore++;
     } 
 
