@@ -9,6 +9,10 @@ let playerScore = 0;
 let computerScore = 0;
 
 btns.addEventListener('click', (event) => {
+    if (playerScore >= 5|| computerScore >= 5) {
+        return;
+    }
+
     let target = event.target;
     let choice = '';
 
